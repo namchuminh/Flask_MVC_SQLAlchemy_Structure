@@ -26,14 +26,31 @@ project/
 
 # Hướng dẫn cài đặt
 - Tạo thư mục cho dự án cần sử dụng
-- Clone source code này về thư mục đã tạo:
+- Pull source code này về thư mục đã tạo:
 ```
-git clone https://github.com/namchuminh/Flask_MVC_SQLAlchemy_Structure.git
+git init
 ```
+sau đó pull
+```
+git pull https://github.com/namchuminh/Flask_MVC_SQLAlchemy_Structure.git
+```
+- Cài đặt các thư viện cần thiết (yêu cầu đúng phiên bản)
+```
+pip install -r requirements.txt
+```
+- Tạo CSDL của bạn (MySQL hoặc PostgreSQL), thay đổi chuỗi kết nối trong file `config.py`
 
-- Tạo CSDL, thay đổi chuỗi kết nối trong file `config.py`
+Kết nối MySQL, cần sửa chuỗi kết nối
 ```
-SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:@localhost/flask_ecommerce'
+SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://username:password@localhost/db_name'
+```
+Kết nối PostgreSQL, cần cài đặt thêm thư viện ``psycopg2-binary``
+```
+pip install psycopg2-binary
+```
+Sau đó thay đổi chuỗi kết nối
+```
+SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://username:password@hostname/db_name'
 ```
 
 # Hướng dẫn về migrations
